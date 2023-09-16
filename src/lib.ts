@@ -49,8 +49,14 @@ export async function handleAction(): Promise<void> {
 
   const validSortedTags = sortAndValidate(tags);
 
+  validSortedTags.forEach((t) => {
+    core.info(t.name);
+  });
+
   if (validSortedTags.length < 2) {
-    core.setFailed('No previous tag found');
+    core.warning('No previous tag found');
+    core.setOutput('changelog', 'None');
+    core.setOutput('changes', 'None');
     return;
   }
 
