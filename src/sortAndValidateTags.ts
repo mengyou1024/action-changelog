@@ -2,7 +2,13 @@ import { compareVersions, validate } from 'compare-versions';
 
 export function sortAndValidate(tags: GitHubTag[]): GitHubTag[] {
   const its = ["release", "release/v", "v"];
+  const latest_tag = ["nightly", "weekly"];
   return tags.filter((tag) => {
+    for(var i=0;i<latest_tag.length;i++) {
+      if (tag.name == latest_tag[i]) {
+        return true;
+      }
+    }
     var name = "";
     its.forEach((it) => {
       if (tag.name.startsWith(it)) {
@@ -13,6 +19,14 @@ export function sortAndValidate(tags: GitHubTag[]): GitHubTag[] {
   }).sort((a, b) => {
     var tempa = "";
     var tempb = "";
+    for(var i = 0; i<latest_tag.length; i++) {
+      if (a.name == latest_tag[i]) {
+        return 1;
+      }
+      if (b.name == latest_tag[i]) {
+        return -1;
+      }
+    }
     its.forEach((it) => {
       if (a.name.startsWith(it)) {
         tempa = a.name.substring(it.length)
