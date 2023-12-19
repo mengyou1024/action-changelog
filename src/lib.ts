@@ -111,4 +111,5 @@ export async function handleAction(): Promise<void> {
   core.info(log.changelog);
   core.setOutput('changelog', log.changelog);
   core.setOutput('changes', log.changes);
+  core.setOutput('version', validSortedTags[0].name);
 }

@@ -10918,6 +10918,7 @@ async function handleAction() {
     core.info(log.changelog);
     core.setOutput('changelog', log.changelog);
     core.setOutput('changes', log.changes);
+    core.setOutput('version', validSortedTags[0].name);
 }
 exports.handleAction = handleAction;
 

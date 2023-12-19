@@ -20,6 +20,8 @@ outputs:
     description: Generated changelog for the latest tag
   changes:
     description: Generated changelog for the latest tag, without the version/date header
+  version:
+    description: The latest tag
 runs:
   using: node16
   main: "dist/index.js"
