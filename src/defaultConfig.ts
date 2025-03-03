@@ -2,13 +2,13 @@ export const DEFAULT_CONFIG: ChangelogConfig = {
   types: [
     { label: '🎉 新特性', types: ['feat', 'feature'] },
     { label: '🐛 问题修复', types: ['fix', 'bugfix', 'bug'] },
-    { label: '🚀 性能优化', types: ['improvements', 'enhancement', 'impro', 'enhance','perf'] },
+    { label: '🚀 性能优化', types: ['improvements', 'enhancement', 'impro', 'enhance', 'perf'] },
     { label: '📚 文档变更', types: ['doc', 'docs'] },
     { label: '🧪 测试', types: ['test', 'tests', 'quality'] },
     { label: '🔨 构建系统', types: ['build', 'ci', 'cd', 'workflow', 'cicd'] },
     { label: '🪚 重构', types: ['refactor', 'refac', 'refact', 'ref'] },
-    { label: '💅 代码风格', types: ['style', 'format'] },
-    { label: '🧹 Chores', types: ['chore', 'other'] },
+    { label: '👚 代码风格', types: ['style', 'format'] },
+    { label: '🧹 其他', types: ['chore', 'other'] },
   ],
 
   excludeTypes: [],

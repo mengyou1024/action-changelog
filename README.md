@@ -82,7 +82,7 @@ module.exports = {
     { types: ['doc', 'docs'], label: '📚 文档变更' },
     { types: ['test', 'tests'], label: '🔍 Tests' },
     { types: ['style'], label: '💅 代码风格' },
-    { types: ['chore'], label: '🧹 Chores' },
+    { types: ['chore'], label: '🧹 其他' },
     { types: ['other'], label: 'Other Changes' },
   ],
 
@@ -140,7 +140,7 @@ module.exports = {
 >
 > - simplified readme
 >
-> ## Chores
+> ## 其他
 >
 > - added project logo
 >

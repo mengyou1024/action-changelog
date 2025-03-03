@@ -10684,8 +10684,8 @@ exports.DEFAULT_CONFIG = {
         { label: '🧪 测试', types: ['test', 'tests', 'quality'] },
         { label: '🔨 构建系统', types: ['build', 'ci', 'cd', 'workflow', 'cicd'] },
         { label: '🪚 重构', types: ['refactor', 'refac', 'refact', 'ref'] },
-        { label: '💅 代码风格', types: ['style', 'format'] },
-        { label: '🧹 Chores', types: ['chore', 'other'] },
+        { label: '👚 代码风格', types: ['style', 'format'] },
+        { label: '🧹 其他', types: ['chore', 'other'] },
     ],
     excludeTypes: [],
     renderTypeSection: (label, commits) => {
