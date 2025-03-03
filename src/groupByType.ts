@@ -22,9 +22,13 @@ export function groupByType(commits: ChangelogCommit[], typeConfig: ChangelogLab
   // And now we sort that array using the TYPES object.
   byTypeArray.sort((a, b) => {
     let aOrder = typeConfig.findIndex((t) => t.types.includes(a.type));
-    if (aOrder === -1) aOrder = 999;
+    if (aOrder === -1) {
+      aOrder = Infinity;
+    }
     let bOrder = typeConfig.findIndex((t) => t.types.includes(b.type));
-    if (bOrder === -1) bOrder = 999;
+    if (bOrder === -1) {
+      bOrder = Infinity;
+    }
     return aOrder - bOrder;
   });
 

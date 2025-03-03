@@ -10,29 +10,29 @@ describe('Test generateChangelog', () => {
       { subject: 'Subject 3', type: 'feat', notes: [] },
       { subject: 'Subject 4', type: 'fix', notes: [] },
       { subject: 'Subject 5', type: 'feat', notes: [] },
-      { subject: 'Subject 6', type: 'other', notes: [] },
+      { subject: 'Subject 6', type: 'chore', notes: [] },
     ];
-    const expectedChanges = `## 🎉 New Features
+    const expectedChanges = `## 🎉 新特性
 - Subject 2
 - Subject 3
 - Subject 5
 
-## 🐛 Bugfixes
+## 🐛 问题修复
 - Subject 1
 - Subject 4`;
     const expectedChangelog = `# 0.0.1 - ${dateString}
 
-## 🎉 New Features
+## 🎉 新特性
 - Subject 2
 - Subject 3
 - Subject 5
 
-## 🐛 Bugfixes
+## 🐛 问题修复
 - Subject 1
 - Subject 4
 
 `;
-    const config: ChangelogConfig = { ...DEFAULT_CONFIG, excludeTypes: ['other'] };
+    const config: ChangelogConfig = { ...DEFAULT_CONFIG, excludeTypes: ['chore'] };
     const result = generateChangelog('0.0.1', commitObjects, config);
 
     expect(result.changes).toStrictEqual(expectedChanges);
@@ -51,21 +51,21 @@ describe('Test generateChangelog', () => {
       {
         subject: 'Feature',
         type: 'feat',
-        notes: [{ title: 'BREAKING CHANGE', text: 'This is another breaking change!' }],
+        notes: [{ title: 'BREAKING CHANGE', text: 'This is anchore breaking change!' }],
         sha: 'bcb8767bc22bc7d4ab47a4fffd4ef435de581054',
         url: 'https://github.com/loopwerk/tag-changelog/commit/bcb8767bc22bc7d4ab47a4fffd4ef435de581054',
       },
     ];
-    const expectedChanges = `## 🎉 New Features
+    const expectedChanges = `## 🎉 新特性
 - Feature
 
-## 🐛 Bugfixes
+## 🐛 问题修复
 - Fix
 
 ## BREAKING CHANGES
 - due to [bcb876](https://github.com/loopwerk/tag-changelog/commit/bcb8767bc22bc7d4ab47a4fffd4ef435de581054): Feature
 
-This is another breaking change!
+This is anchore breaking change!
 
 - due to [bcb876](https://github.com/loopwerk/tag-changelog/commit/bcb8767bc22bc7d4ab47a4fffd4ef435de581054): Fix
 
@@ -81,12 +81,14 @@ This is a breaking change!`;
       { subject: 'Subject 2', type: 'feat', notes: [], scope: 'scope' },
       { subject: 'Subject 3', type: 'feat', notes: [] },
       { subject: 'Subject 4', type: 'fix', notes: [] },
+      { subject: 'Subject 5', type: 'feat', notes: [], scope: 'scope' },
     ];
-    const expectedChanges = `## 🎉 New Features
+    const expectedChanges = `## 🎉 新特性
 - **scope:** Subject 2
 - Subject 3
+- **scope:** Subject 5
 
-## 🐛 Bugfixes
+## 🐛 问题修复
 - **scope:** Subject 1
 - Subject 4`;
     const result = generateChangelog('0.0.1', commitObjects, DEFAULT_CONFIG);

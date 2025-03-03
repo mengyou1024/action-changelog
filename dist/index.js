@@ -10677,17 +10677,15 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DEFAULT_CONFIG = void 0;
 exports.DEFAULT_CONFIG = {
     types: [
-        { label: '🎉 New Features', types: ['feat', 'feature'] },
-        { label: '🐛 Bugfixes', types: ['fix', 'bugfix', 'bug'] },
-        { label: '🔨 Improvements', types: ['improvements', 'enhancement', 'impro', 'enhance'] },
-        { label: '🚀 Performance Improvements', types: ['perf'] },
-        { label: '📚 Documentation Changes', types: ['doc', 'docs'] },
-        { label: '🧪 Quality', types: ['test', 'tests', 'quality'] },
-        { label: '🧱 Build System', types: ['build', 'ci', 'cd', 'workflow', 'cicd'] },
-        { label: '🪚 Refactors', types: ['refactor', 'refac', 'refact', 'ref'] },
-        { label: '💅 Code Style Changes', types: ['style', 'format'] },
-        { label: '🧹 Chores', types: ['chore'] },
-        { label: '🤔 Other Changes', types: ['other'] },
+        { label: '🎉 新特性', types: ['feat', 'feature'] },
+        { label: '🐛 问题修复', types: ['fix', 'bugfix', 'bug'] },
+        { label: '🚀 性能优化', types: ['improvements', 'enhancement', 'impro', 'enhance', 'perf'] },
+        { label: '📚 文档变更', types: ['doc', 'docs'] },
+        { label: '🧪 测试', types: ['test', 'tests', 'quality'] },
+        { label: '🔨 构建系统', types: ['build', 'ci', 'cd', 'workflow', 'cicd'] },
+        { label: '🪚 重构', types: ['refactor', 'refac', 'refact', 'ref'] },
+        { label: '💅 代码风格', types: ['style', 'format'] },
+        { label: '🧹 Chores', types: ['chore', 'other'] },
     ],
     excludeTypes: [],
     renderTypeSection: (label, commits) => {
@@ -10792,11 +10790,13 @@ function groupByType(commits, typeConfig) {
     // And now we sort that array using the TYPES object.
     byTypeArray.sort((a, b) => {
         let aOrder = typeConfig.findIndex((t) => t.types.includes(a.type));
-        if (aOrder === -1)
-            aOrder = 999;
+        if (aOrder === -1) {
+            aOrder = Infinity;
+        }
         let bOrder = typeConfig.findIndex((t) => t.types.includes(b.type));
-        if (bOrder === -1)
-            bOrder = 999;
+        if (bOrder === -1) {
+            bOrder = Infinity;
+        }
         return aOrder - bOrder;
     });
     return byTypeArray;

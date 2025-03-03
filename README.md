@@ -73,15 +73,15 @@ The order in which the `types` appear also determines the order of the generated
 ```javascript
 module.exports = {
   types: [
-    { types: ['feat', 'feature'], label: '🎉 New Features' },
-    { types: ['fix', 'bugfix'], label: '🐛 Bugfixes' },
-    { types: ['improvements', 'enhancement'], label: '🔨 Improvements' },
-    { types: ['perf'], label: '🏎️ Performance Improvements' },
-    { types: ['build', 'ci'], label: '🏗️ Build System' },
-    { types: ['refactor'], label: '🪚 Refactors' },
-    { types: ['doc', 'docs'], label: '📚 Documentation Changes' },
+    { types: ['feat', 'feature'], label: '🎉 新特性' },
+    { types: ['fix', 'bugfix'], label: '🐛 问题修复' },
+    { types: ['improvements', 'enhancement'], label: '🔨 改进' },
+    { types: ['perf'], label: '🏎️ 性能优化' },
+    { types: ['build', 'ci'], label: '🏗️ 构建系统' },
+    { types: ['refactor'], label: '🪚 重构' },
+    { types: ['doc', 'docs'], label: '📚 文档变更' },
     { types: ['test', 'tests'], label: '🔍 Tests' },
-    { types: ['style'], label: '💅 Code Style Changes' },
+    { types: ['style'], label: '💅 代码风格' },
     { types: ['chore'], label: '🧹 Chores' },
     { types: ['other'], label: 'Other Changes' },
   ],
@@ -130,13 +130,13 @@ module.exports = {
 
 > # v0.14.0 - 2021-02-22
 >
-> ## New Features
+> ## 新特性
 >
 > - merge the default config with the user config so that the user config only has to override values it wants and use the defaults for the others
 > - the custom config file is now JS instead of JSON, allow the override of the changelog text templates ([#2](https://github.com/loopwerk/tag-changelog/pull/2) by [kevinrenskers](https://github.com/kevinrenskers))
 > - commit types to exclude can now also be configured via the config file
 >
-> ## Documentation Changes
+> ## 文档变更
 >
 > - simplified readme
 >

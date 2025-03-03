@@ -4,7 +4,7 @@ import { DEFAULT_CONFIG } from '../src/defaultConfig';
 describe('Test groupByType', () => {
   it('Groups And Sorts Commits By Type', () => {
     const commits: ChangelogCommit[] = [
-      { subject: 'Subject 0', type: 'other', notes: [] },
+      { subject: 'Subject 0', type: 'chore', notes: [] },
       { subject: 'Subject 1', type: 'feat', notes: [] },
       { subject: 'Subject 2', type: 'nonexisting', notes: [] },
       { subject: 'Subject 3', type: 'feat', notes: [] },
@@ -12,6 +12,7 @@ describe('Test groupByType', () => {
       { subject: 'Subject 5', type: 'fix', notes: [] },
       { subject: 'updates workflow', type: 'build', notes: [] },
       { subject: 'resets version', type: 'cd', notes: [], scope: 'version' },
+      { subject: 'resets version', type: 'ls', notes: [], scope: 'version' },
     ];
 
     const expected: ChangelogCommitGroup[] = [
@@ -37,12 +38,16 @@ describe('Test groupByType', () => {
         ],
       },
       {
-        type: 'other',
-        commits: [{ subject: 'Subject 0', type: 'other', notes: [] }],
+        type: 'chore',
+        commits: [{ subject: 'Subject 0', type: 'chore', notes: [] }],
       },
       {
         type: 'nonexisting',
         commits: [{ subject: 'Subject 2', type: 'nonexisting', notes: [] }],
+      },
+      {
+        type: 'ls',
+        commits: [{ scope: "version", subject: 'resets version', type: 'ls', notes: [] }],
       },
     ];
 
@@ -52,14 +57,14 @@ describe('Test groupByType', () => {
 
   it('Orders Sorted Groups As Expected', () => {
     const commits = [
-      { subject: 'Subject 0', type: 'other', notes: [] },
+      { subject: 'Subject 0', type: 'chore', notes: [] },
       { subject: 'Subject 1', type: 'feat', notes: [] },
     ];
 
     const notExpected = [
       {
-        type: 'other',
-        commits: [{ subject: 'Subject 0', type: 'other', notes: [] }],
+        type: 'chore',
+        commits: [{ subject: 'Subject 0', type: 'chore', notes: [] }],
       },
       {
         type: 'feat',
@@ -73,8 +78,8 @@ describe('Test groupByType', () => {
         commits: [{ subject: 'Subject 1', type: 'feat', notes: [] }],
       },
       {
-        type: 'other',
-        commits: [{ subject: 'Subject 0', type: 'other', notes: [] }],
+        type: 'chore',
+        commits: [{ subject: 'Subject 0', type: 'chore', notes: [] }],
       },
     ];
 
